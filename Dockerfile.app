@@ -1,13 +1,11 @@
+# app/Dockerfile
 FROM python:3.9-slim-buster
-jbjhjb
+
 WORKDIR /app
 
-COPY app/requirements.txt .
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY app/. .
-RUN chmod +x entrypoint.sh
+COPY . .
 
-EXPOSE 5000
-
-CMD ["./entrypoint.sh"]
+CMD ["python", "app.py"]
